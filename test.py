@@ -43,39 +43,84 @@ thread = client.beta.threads.create(
     messages=[
         {
             "role": "user",
-            "content": '''Please provide a detailed README.md including API calls, file structure, and key components. You are to only return the content for the Readme.md file, there is no need for additional information.
+            "content": '''
+            Please provide a detailed README.md including API calls, file structure, and key components. You are to only return the content for the Readme.md file, there is no need for additional information.
              well-crafted README file is crucial for making your project accessible and understandable to new users and contributors. Here are the key components that are typically included in a README file:
-                Project Title: Clearly state the name of the project.
+             Project Title
 
-    Description: A brief description of what the project does and its purpose.
+Your Project Name
+Description
 
-    Installation Instructions: Step-by-step instructions on how to get a development environment running, including how to install any required software or libraries.
+    Brief overview of the project
+    Purpose of the project
+    Key features and functionalities
 
-    Usage: Instructions on how to use the project, including examples of its use in code. This section can also include screenshots or videos to help explain how the project works.
+Installation Instructions
 
-    Contributing: Guidelines for how others can contribute to the project. This might include instructions on how to file an issue, make a pull request, or describe the types of contributions that are needed.
+    Prerequisites (software/dependencies needed)
+    Step-by-step guide to set up a development environment
+    Any necessary set up in your code base
 
-    License: Specify the license under which the project is made available. This clarifies what others can and cannot do with your project's code.
+Usage
 
-    Authors or Acknowledgments: A list of contributors to the project or acknowledgments to those who have contributed significantly.
+    Step-by-step instructions on how to use the project
+        Include code examples here
+    Screenshots or video demos
 
-    Features: A list of the project’s features.
+Contributing
 
-    Technology Stack: List the technologies used in the project. This might include programming languages, libraries, or frameworks.
+    How to file an issue
+    How to suggest enhancements
+    How to make a pull request
 
-    Code Examples: Provide code snippets of how to use the library or framework.
+License
 
-    API References: If the project is a library or framework, listing the API functions and their uses can be very helpful.
+    Specify the license (MIT, Apache, etc.)
 
-    Status: If the project is in continuous development, consider adding a status badge for the build state or coverage.
+Authors and Acknowledgments
 
-    Contact Information: How to reach out to the maintainer or the team behind the project.
+    List of contributors
+    Acknowledgments
 
-    FAQs: Frequently asked questions. This section can save users time by providing answers to common questions.
+Features [#Features]
 
-    Roadmap: If applicable, include current project status and future plans.
+    Feature 1
+    Feature 2
+    Feature 3
 
-    Security: If necessary, include security contact information and any known security issues.''',
+Technology Stack [#TechStack]
+
+    Language 1
+    Framework 1
+    Library 1
+
+Code Examples [#CodeExamples]
+
+// Code snippet 1
+
+# Code snippet 2
+
+API Endpoints [#API]
+
+    GET /endpoint1
+        Description
+        Parameters
+        Returns
+    POST /endpoint2
+        Description
+        Parameters
+        Returns
+
+Status
+
+    Development status
+    Build status badge
+    Code coverage badge
+
+Contact Information [#Contact]
+
+    How to reach the team or maintainer
+''',
             "attachments": [
                 {"file_id": message_file.id, "tools": [{"type": "file_search"}]}
             ]

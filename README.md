@@ -1,49 +1,50 @@
-# Project README.md Overview
+# Project Name
 
-Welcome to our code repository! This README aims to provide a high-level overview of the project for developers and contributors.
+## Description
+
+This project includes a runnable Node.js server with API endpoints to manage user authentication. The primary functionalities provided include user registration and login, leveraging MongoDB for data storage.
 
 ## API Endpoints
 
-Our project features several API endpoints to handle user interactions securely and efficiently:
+### Registration
+- **POST /api/register**
+  - Description: Registers a new user by taking username, email, and password, validates the request, checks for existing users, hashes the password, and stores the user in the database.
+  - Parameters: `{ username, email, password }`
+  - Returns: User object with status code 201 on success.
+  
+### Login
+- **POST /api/login**
+  - Description: Authenticates user credentials against the database. If authentication is successful, returns a success message (future implementations will handle JWT creation).
+  - Parameters: `{ email, password }`
+  - Returns: Success message with status code 200 on success.
 
-- **Hello Endpoint**:
-  - **GET** `/api/hello`: Returns a simple JSON greeting[0].
-
-- **User Authentication**:
-  - **POST** `/api/register`: Handles new user registrations by taking username, email, and password, and adding a new user to the database after password hashing[0].
-  - **POST** `/api/login`: Authenticates users by comparing hashed passwords and returns a session token if successful[0].
+### Hello
+- **GET /api/hello**
+  - Description: A simple API for testing that returns a hardcoded user object.
+  - Parameters: None
+  - Returns: A user object with status code 200.
 
 ## File Structure
 
-The file structure of our project is generated dynamically using a script which recursively scans a given directory and outputs a JSON structure containing information about each file and directory[3]. Here’s an excerpt of our script functionality:
+The project is structured with a clear separation of concerns, mimicking a typical Node.js + Next.js application structure:
 
-```javascript
-function generateFileStructure(folderPath) {
-  const items = fs.readdirSync(folderPath);
-  // Logic to handle directories and files
-}
-const fileStructure = generateFileStructure('./path_to_directory');
-```
-
+- `src/pages/api/` - Contains the API route implementations including `hello.js`, `login.js`, and `register.js`.
+- `src/lib/` - Library code, including the MongoDB connection setup.
+- `src/models/` - Mongoose models, includes a User model definition.
+- `src/hooks/` - Custom React hooks for managing local storage and handling color theme changes.
+- `src/components/` - Reusable React components.
+  
 ## Key Components
 
-- **Database Connection**:
-  - The `dbConnect` function handles the connection pooling to MongoDB using environment variables for configuration[0].
+- **MongoDB Integration (`src/lib/mongodb.js`)**
+  - Responsible for database connection and management.
+- **User Model (`src/models/User.js`)**
+  - Defines the MongoDB schema for user data.
+- **Authentication API (`src/pages/api/`)**
+  - Includes all backend logic for handling authentication requests.
+- **Custom Hooks (`src/hooks/`)**
+  - Includes hooks for local storage management and UI theme settings.
 
-- **User Model**:
-  - Defines the User schema model for MongoDB using mongoose which includes fields like username, email, password, and creation date[0].
+In addition to these components, the project also includes basic configurations for Next.js (`next-env.d.ts`, and `tailwind.config.js`) which handle TypeScript support and Tailwind CSS configuration respectively.
 
-- **Authentication Logic**:
-  - User password hashing and verification using `bcryptjs`[0].
-  - Protected routes that check for valid session tokens before granting access[0].
-
-- **Local Storage Hook**:
-  - Custom React hook `useLocalStorage` for managing local storage state. This hook abstracts the complexities of synchronizing state with local storage[0].
-
-- **Themes and Styling**:
-  - Implementation of dark and light modes using another custom hook `useColorMode` which manages the theme state throughout the application[0].
-
-- **Frontend Components**:
-  - Reusable React components for UI including layouts, authentication forms, and other user interface elements .
-
-By examining the structure and components detailed above, contributors should have a good starting point for understanding how the application is built and how to begin contributing to the project. If further information is needed, refer to the source code and the extensive comments therein.
+For further details on file structure and more specific implementations, refer to the file structure logic implemented in the AST.js file[0].
