@@ -1,4 +1,4 @@
-```markdown
+
 # Your Project Name
 
 ## Description
@@ -89,6 +89,4 @@ fetch('/api/data')
 
 For more information, reach out via [contact@example.com](mailto:contact@example.com).
 
----
-```
 This README.md provides an outline for a project utilizing a common web technology stack. Adjust the content to match specific project details and development practices.
